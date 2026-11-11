@@ -1,41 +1,580 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+/* ================= ROOT ================= */
+
 :root {
-  --primary-color: #1E40AF;
-  --secondary-color: #10B981;
-  --bg-color: #F8FAFC;
-  --text-dark: #1F2937;
-  --border-color: #E5E7EB;
+  --gold: #d4af37;
+  --gold-light: #f5d778;
+  --black: #101010;
+  --text: #242424;
+  --muted: #858585;
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
 }
 
 body {
-  background-color: var(--bg-color);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: var(--text-dark);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+  background: #fff;
 }
 
-.btn-primary-custom {
-  background-color: var(--primary-color);
-  border: none;
+/* ================= MAIN LAYOUT ================= */
+
+.luxury-login {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  width: 100%;
+  background: #fff;
 }
 
-.btn-primary-custom:hover {
-  background-color: #1c3aa9;
-}
+/* ================= LEFT BRAND PANEL ================= */
 
-.form-control:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 0.15rem rgba(30, 64, 175, 0.25);
-}
+.brand-section {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
 
-.btn-login {
-  background: #1e3a8a;
+  /* FIXED IMAGE PATH FOR VITE PUBLIC FOLDER */
+  background-image:
+    linear-gradient(
+      rgba(5, 5, 5, 0.30),
+      rgba(5, 5, 5, 0.58)
+    ),
+    url("/images/jewellery-background.png");
+
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   color: white;
+  overflow: hidden;
+}
+
+/* ================= BRAND FRAME ================= */
+
+.brand-frame {
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.brand-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 650px;
+  padding: 35px;
+  text-align: center;
+}
+
+/* ================= BRAND LOGO ================= */
+
+.brand-logo {
+  width: 85px;
+  height: 85px;
+
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+
+  margin: 0 auto 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--gold-light);
+  font-family: 'Playfair Display', serif;
+}
+
+.logo-symbol {
+  font-size: 17px;
+}
+
+.logo-letters {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* ================= BRAND TEXT ================= */
+
+.brand-eyebrow {
+  color: var(--gold-light);
+  font-size: 12px;
   font-weight: 600;
-  border-radius: 10px;
+  letter-spacing: 6px;
+  margin-bottom: 18px;
+}
+
+.brand-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 3.5vw, 52px);
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.brand-title span {
+  display: block;
+  color: var(--gold-light);
+}
+
+/* ================= GOLD DIVIDER ================= */
+
+.gold-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 28px auto;
+  color: var(--gold);
+}
+
+.gold-divider::before,
+.gold-divider::after {
+  content: "";
+  width: 55px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.gold-divider span {
+  font-size: 18px;
+}
+
+/* ================= BRAND DESCRIPTION ================= */
+
+.brand-description {
+  color: #eee9dc;
+  font-size: 14px;
+  line-height: 2;
+  letter-spacing: 0.5px;
+}
+
+.brand-tagline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+  margin-top: 55px;
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--gold-light);
+}
+
+.brand-tagline i {
+  width: 4px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+
+/* ================= COPYRIGHT ================= */
+
+.brand-copyright {
+  position: absolute;
+  bottom: 18px;
+  left: 0;
+  right: 0;
+
+  text-align: center;
+  color: #c5bca9;
+  font-size: 10px;
+  z-index: 3;
+}
+
+/* ================= RIGHT LOGIN PANEL ================= */
+
+.login-section {
+  min-height: 100vh;
+  background: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 45px 30px;
+}
+
+.login-wrapper {
+  width: 100%;
+  max-width: 430px;
+}
+
+.mobile-brand {
+  display: none;
+}
+
+/* ================= LOGIN HEADING ================= */
+
+.login-heading {
+  margin-bottom: 38px;
+}
+
+.welcome-icon {
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #a77b13;
+  background: #fbf5e6;
+  border-radius: 12px;
+
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.login-heading h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 35px;
+  color: var(--black);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.login-heading p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ================= FORM INPUTS ================= */
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.form-group input {
+  width: 100%;
+  height: 52px;
+
+  border: 1px solid #e4e4e4;
+  border-radius: 9px;
+
+  padding: 0 16px;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  color: #222;
+  outline: none;
+  background: #fafafa;
+
   transition: 0.3s;
 }
 
-.btn-login:hover {
-  background: #d4af37;
-  color: black;
+.form-group input:focus {
+  border-color: var(--gold);
+  background: white;
+
+  box-shadow:
+    0 0 0 3px rgba(212, 175, 55, 0.12);
 }
 
+.form-group input::placeholder {
+  color: #aaa;
+}
+
+/* ================= PASSWORD ================= */
+
+.password-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.forgot-password {
+  border: none;
+  background: none;
+
+  color: #a77b13;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.forgot-password:hover {
+  color: var(--gold);
+  text-decoration: underline;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  padding-right: 65px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  border: none;
+  background: none;
+
+  color: #a77b13;
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.toggle-password:hover {
+  color: var(--gold);
+}
+
+/* ================= LOGIN BUTTON ================= */
+
+.login-submit {
+  width: 100%;
+  height: 53px;
+
+  background: linear-gradient(
+    110deg,
+    #b58a28,
+    #e5c45c
+  );
+
+  border: none;
+  border-radius: 9px;
+
+  color: #17120a;
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: 0.3s;
+
+  box-shadow:
+    0 5px 15px rgba(181, 138, 40, 0.18);
+}
+
+.login-submit:hover {
+  background: linear-gradient(
+    110deg,
+    #d4af37,
+    #f3d77b
+  );
+
+  transform: translateY(-2px);
+}
+
+.login-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ================= OR DIVIDER ================= */
+
+.or-divider {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 28px 0;
+}
+
+.or-divider span {
+  flex: 1;
+  height: 1px;
+  background: #e8e8e8;
+}
+
+.or-divider p {
+  font-size: 10px;
+  color: #999;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+/* ================= GOOGLE LOGIN ================= */
+
+.google-login {
+  width: 100%;
+  height: 53px;
+
+  background: white;
+  border: 1px solid #e2e2e2;
+  border-radius: 9px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.google-login:hover {
+  background: #fafafa;
+  border-color: #c8a64b;
+}
+
+/* ================= SECURITY MESSAGE ================= */
+
+.security-note {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 35px;
+
+  color: #999;
+  font-size: 11px;
+  text-align: center;
+}
+
+.login-footer {
+  text-align: center;
+  margin-top: 35px;
+
+  color: #b3a58a;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+}
+
+/* ================= TABLET RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+  .luxury-login {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+
+  .brand-content {
+    padding: 22px;
+  }
+
+  .brand-title {
+    font-size: 35px;
+  }
+
+  .brand-description {
+    font-size: 12px;
+  }
+
+  .login-section {
+    padding: 30px 22px;
+  }
+
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 650px) {
+
+  .luxury-login {
+    display: block;
+  }
+
+  .brand-section {
+    display: none;
+  }
+
+  .login-section {
+    min-height: 100vh;
+    padding: 35px 22px;
+  }
+
+  .login-wrapper {
+    max-width: 440px;
+  }
+
+  .mobile-brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    color: #a77b13;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    margin-bottom: 55px;
+  }
+
+  .mobile-brand span {
+    font-size: 25px;
+  }
+
+  .login-heading h2 {
+    font-size: 30px;
+  }
+
+}
+
+/* ================= SMALL MOBILE ================= */
+
+@media (max-width: 380px) {
+
+  .login-section {
+    padding: 25px 16px;
+  }
+
+  .login-heading h2 {
+    font-size: 27px;
+  }
+
+  .mobile-brand {
+    font-size: 13px;
+  }
+
+  .or-divider {
+    gap: 9px;
+  }
+
+  .or-divider p {
+    font-size: 9px;
+  }
+
+}
