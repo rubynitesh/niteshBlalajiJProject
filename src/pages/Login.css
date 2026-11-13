@@ -47,18 +47,22 @@ body {
   position: relative;
   min-height: 100vh;
   width: 100%;
+  isolation: isolate;
 
-  /* FIXED IMAGE PATH FOR VITE PUBLIC FOLDER */
+  /* VITE PUBLIC IMAGE PATH */
+
   background-image:
     linear-gradient(
-      rgba(5, 5, 5, 0.30),
-      rgba(5, 5, 5, 0.58)
+      135deg,
+      rgba(5, 5, 5, 0.32),
+      rgba(5, 5, 5, 0.62)
     ),
     url("/images/jewellery-background.png");
 
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+  background-color: #17100b;
 
   display: flex;
   align-items: center;
@@ -471,6 +475,10 @@ body {
   color: #999;
   font-size: 11px;
   text-align: center;
+}
+
+.security-note p {
+  margin: 0;
 }
 
 .login-footer {

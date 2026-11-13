@@ -6,7 +6,6 @@ import { toast } from "react-toastify";
 import "./Login.css";
 
 function Login() {
-
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -14,7 +13,8 @@ function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // EXISTING JWT LOGIN
+  // ================= JWT LOGIN =================
+
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -43,7 +43,6 @@ function Login() {
       toast.success("Login Successful 🎉");
 
       switch (data.role) {
-
         case "ROLE_ADMIN":
           navigate("/admin/dashboard");
           break;
@@ -68,7 +67,6 @@ function Login() {
       }
 
     } catch (error) {
-
       console.error("Login Error:", error);
 
       const errorMsg =
@@ -83,10 +81,9 @@ function Login() {
     }
   };
 
+  // ================= GOOGLE LOGIN =================
 
-  // GOOGLE LOGIN
   const handleGoogleLogin = () => {
-
     const API_BASE_URL =
       import.meta.env.VITE_API_BASE_URL ||
       "http://localhost:3030";
@@ -95,20 +92,18 @@ function Login() {
       `${API_BASE_URL}/oauth2/authorization/google`;
   };
 
+  // ================= UI =================
 
   return (
-
     <main className="luxury-login">
 
-      {/* ================= LEFT BRANDING PANEL ================= */}
+      {/* LEFT BRANDING PANEL */}
 
       <section className="brand-section">
 
         <div className="brand-frame">
 
           <div className="brand-content">
-
-            {/* BRAND LOGO */}
 
             <div className="brand-logo">
               <span className="logo-symbol">✦</span>
@@ -153,8 +148,7 @@ function Login() {
 
       </section>
 
-
-      {/* ================= RIGHT LOGIN PANEL ================= */}
+      {/* RIGHT LOGIN PANEL */}
 
       <section className="login-section">
 
@@ -166,7 +160,6 @@ function Login() {
             <span>✦</span>
             SHREE BALA JI JEWELLERY
           </div>
-
 
           {/* LOGIN HEADING */}
 
@@ -184,7 +177,6 @@ function Login() {
             </p>
 
           </div>
-
 
           {/* LOGIN FORM */}
 
@@ -210,7 +202,6 @@ function Login() {
 
             </div>
 
-
             {/* PASSWORD */}
 
             <div className="form-group">
@@ -232,7 +223,6 @@ function Login() {
                 </button>
 
               </div>
-
 
               <div className="password-wrapper">
 
@@ -261,8 +251,7 @@ function Login() {
 
             </div>
 
-
-            {/* LOGIN BUTTON */}
+            {/* SIGN IN BUTTON */}
 
             <button
               type="submit"
@@ -272,24 +261,17 @@ function Login() {
               {loading ? "Signing In..." : "Sign In"}
 
               {!loading && <span> →</span>}
-
             </button>
 
           </form>
 
-
           {/* DIVIDER */}
 
           <div className="or-divider">
-
             <span></span>
-
             <p>OR CONTINUE WITH</p>
-
             <span></span>
-
           </div>
-
 
           {/* GOOGLE LOGIN */}
 
@@ -324,27 +306,24 @@ function Login() {
                 fill="#34A853"
                 d="M24 48c6.48 0 11.93-2.13 15.91-5.8l-7.73-6c-2.14 1.45-4.89 2.3-8.18 2.3-6.26 0-11.57-4.22-13.46-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"
               />
-
             </svg>
 
             Continue with Google
 
           </button>
 
-
           {/* SECURITY MESSAGE */}
 
           <div className="security-note">
-
             <span>🔒</span>
 
             <p>
               Your account and business data
               are securely protected.
             </p>
-
           </div>
 
+          {/* FOOTER */}
 
           <p className="login-footer">
             SHREE BALA JI JEWELLERY BILLING SYSTEM
