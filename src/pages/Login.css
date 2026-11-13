@@ -43,26 +43,22 @@ body {
 
 /* ================= LEFT BRAND PANEL ================= */
 
+
 .brand-section {
   position: relative;
   min-height: 100vh;
   width: 100%;
-  isolation: isolate;
-
-  /* VITE PUBLIC IMAGE PATH */
 
   background-image:
     linear-gradient(
-      135deg,
-      rgba(5, 5, 5, 0.32),
-      rgba(5, 5, 5, 0.62)
+      rgba(5, 5, 5, 0.30),
+      rgba(5, 5, 5, 0.58)
     ),
-    url("/images/jewellery-background.png");
+    url("/images/jewellery-background1.png");
 
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: #17100b;
 
   display: flex;
   align-items: center;
@@ -71,6 +67,7 @@ body {
   color: white;
   overflow: hidden;
 }
+
 
 /* ================= BRAND FRAME ================= */
 
